@@ -52,6 +52,7 @@
     <Compile Include="Brick.cs" />
     <Compile Include="Crate.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +78,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -96,11 +98,22 @@
     <Folder Include="resources\textures\effects\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\textures\entities\player.png" />
-    <Content Include="resources\textures\tiles\box.png" />
-    <Content Include="resources\textures\tiles\brick1.png" />
-    <Content Include="resources\textures\tiles\brick2.png" />
-    <Content Include="resources\textures\tiles\brick3.png" />
+    <Content Include="resources\textures\entities\player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\textures\tiles\box.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="resources\textures\tiles\box_open.png" />
+    <Content Include="resources\textures\tiles\brick1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\textures\tiles\brick2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\textures\tiles\brick3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TextTemplate.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

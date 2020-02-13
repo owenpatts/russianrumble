@@ -8,9 +8,9 @@ namespace russianrumble
 {
     abstract class Direction
     {
-        public static int UP;
-        public static int DOWN;
-        public static int LEFT;
-        public static int RIGHT;
+        public static int UP = 1;
+        public static int DOWN = 2;
+        public static int LEFT = 3;
+        public static int RIGHT = 4;
     }
 }

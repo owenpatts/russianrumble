@@ -7,24 +7,13 @@ using System.Drawing;
 
 namespace russianrumble
 {
-    abstract class Squatter
+    abstract class Squatter : Entity
     {
         protected int displayX;
         protected int displayY;
-        protected int x;
-        protected int y;
-        public abstract void Draw(Graphics graphics);
+
+        public abstract override void Draw(Graphics graphics);
         public abstract void Move(int direction);
-
-        public int GetX()
-        {
-            return x;
-        }
-
-        public int GetY()
-        {
-            return y;
-        }
 
     }
 }

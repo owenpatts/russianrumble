@@ -9,12 +9,22 @@ namespace russianrumble
 {
     class Game
     {
-        public World world = new World();
+        private int mousePosX;
+        private int mousePosY;
+
+        public World world;
         public Player player = new Player();
 
-        public void Update(int MousePosX, int MousePosY, Graphics g)
+        public Game()
         {
-            world.Update(MousePosY, MousePosX, g);
+            world = new World(this);
+        }
+
+        public void Update(int mousePosX, int mousePosY, Graphics g)
+        {
+            world.Update(mousePosX, mousePosY, g);
+            this.mousePosX = mousePosX;
+            this.mousePosY = mousePosY;
         }
 
         public void Draw(Graphics graphics)
@@ -28,6 +38,16 @@ namespace russianrumble
             x /= Tile.tileSize;
             y /= Tile.tileSize;
             //player.Move(x, y);
+        }
+
+        public int GetMousePosX()
+        {
+            return mousePosX;
+        }
+
+        public int GetMousePosY()
+        {
+            return mousePosY;
         }
     }
 }

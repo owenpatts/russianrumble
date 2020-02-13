@@ -7,8 +7,10 @@ using System.Drawing;
 
 namespace russianrumble
 {
-    abstract class Item
+    abstract class Item : Entity
     {
         static Image texture;
+
+
     }
 }

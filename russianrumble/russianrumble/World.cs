@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Collections;
 
 namespace russianrumble
 {
@@ -12,10 +13,14 @@ namespace russianrumble
         static int worldHeight = 18;
         static int worldWidth = 30;
 
-        Tile[,] map;
+        public Tile[,] map;
+        public ArrayList entities = new ArrayList();
+        
+        public Game game;
 
-        public World()
+        public World(Game game)
         {
+            this.game = game;
             Random rand = new Random();
             map = new Tile[worldWidth, worldHeight];
             for(int i = 0; i < worldWidth; i++)
@@ -26,8 +31,9 @@ namespace russianrumble
                 }
             }
 
-            map[7, 7] = new Crate(7, 7);
-            map[8, 13] = new Crate(8, 13);
+            entities.Add(new Crate(7, 7));
+            entities.Add(new Crate(3, 2));
+
         }
 
         public void Update(int mousePosX, int mousePosY, Graphics g)
@@ -41,6 +47,10 @@ namespace russianrumble
                 }
 
             }
+            foreach(Entity e in entities)
+            {
+                e.Update(this);
+            }
         }
 
         public void Draw(Graphics graphics)
@@ -53,17 +63,26 @@ namespace russianrumble
                 }
 
             }
+            foreach (Entity e in entities)
+            {
+                e.Draw(graphics);
+            }
         }
-
+        /// <summary>
+        /// Checks if the mouse is inside the given tile
+        /// </summary>
+        /// <param name="tileIdxX"></param>
+        /// <param name="tileIdxY"></param>
+        /// <param name="mousePxX"></param>
+        /// <param name="mousePxY"></param>
+        /// <param name="g"></param>
+        /// <returns></returns>
         private bool MouseInTile(int tileIdxX, int tileIdxY, int mousePxX, int mousePxY, Graphics g)
         {
             int currentTileCoordinateX = Tile.tileSize * tileIdxX;
             int currentTileCoordinateY = Tile.tileSize * tileIdxY;
             Rectangle r = new Rectangle(currentTileCoordinateX, currentTileCoordinateY, Tile.tileSize, Tile.tileSize);
-            Pen p = new Pen(Brushes.White);
-            p.Width = 1F;
-            //g.DrawRectangle(p, r);
-            return r.Contains(mousePxY, mousePxX);
+            return r.Contains(mousePxX, mousePxY);
         }
     }
 }

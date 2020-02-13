@@ -17,6 +17,11 @@ namespace russianrumble
             graphics.DrawImage(texture, location);
         }
 
+        public override void Interact()
+        {
+            
+        }
+
         public override void Move(int direction)
         {
             if(direction == Direction.UP)
@@ -35,6 +40,11 @@ namespace russianrumble
                 x += 1;
             }
             Console.WriteLine(x);
+        }
+
+        public override void Update(World world)
+        {
+            
         }
     }
 }

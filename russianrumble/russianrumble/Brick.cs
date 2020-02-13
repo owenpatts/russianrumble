@@ -9,7 +9,7 @@ namespace russianrumble
 {
     class Brick : Tile
     {
-        static Image texture = Image.FromFile("C:\\Users\\Owen\\source\\repos\\russianrumble\\russianrumble\\russianrumble\\resources\\textures\\tiles\\brick1.png");
+        static Image texture = Properties.Resources.brick1;
         private int highlightAmt;
 
         public Brick(int x, int y)
