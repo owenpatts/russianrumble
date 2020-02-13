@@ -7,38 +7,20 @@ using System.Drawing;
 
 namespace russianrumble
 {
-    class Tile
+    abstract class Tile
     {
-        int tileSize = 64;
-        int textureVariation;
+        public static int tileSize = 64;
+        public static int maxHighlightOpacity = 50;
         public int x;
         public int y;
-        static Image brickVar1 = Image.FromFile("C:\\Users\\Owen\\source\\repos\\russianrumble\\russianrumble\\russianrumble\\resources\\textures\\tiles\\brick1.png");
-        static Image brickVar2 = Image.FromFile("C:\\Users\\Owen\\source\\repos\\russianrumble\\russianrumble\\russianrumble\\resources\\textures\\tiles\\brick2.png");
-        static Image brickVar3 = Image.FromFile("C:\\Users\\Owen\\source\\repos\\russianrumble\\russianrumble\\russianrumble\\resources\\textures\\tiles\\brick3.png");
+        public bool walkable;
+        public bool highlighted;
+        public int highlightAmt;
 
+        public abstract void Draw(Graphics graphics);
 
-        public Tile(int textureVariation)
-        {
-            this.textureVariation = textureVariation;
-            Console.WriteLine(textureVariation);
-        }
+        public abstract void Update(bool hover);
 
-        public void Draw(Graphics graphics)
-        {
-            Point location = new Point(x*tileSize, y*tileSize);
-            switch(textureVariation) {
-                case 1:
-                    graphics.DrawImage(brickVar1, location);
-                    break;
-                case 2:
-                    graphics.DrawImage(brickVar2, location);
-                    break;
-                case 3:
-                    graphics.DrawImage(brickVar3, location);
-                    break;
-            }
-            
-        }
+        public abstract void Interact();
     }
 }
