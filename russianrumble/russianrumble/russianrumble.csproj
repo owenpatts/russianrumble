@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -47,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Brick.cs" />
+    <Compile Include="Crate.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="resources\textures\entities\player.png" />
+    <Content Include="resources\textures\tiles\box.png" />
     <Content Include="resources\textures\tiles\brick1.png" />
     <Content Include="resources\textures\tiles\brick2.png" />
     <Content Include="resources\textures\tiles\brick3.png" />
+    <Content Include="TextTemplate.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

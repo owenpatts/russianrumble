@@ -22,22 +22,22 @@ namespace russianrumble
             {
                 for(int j = 0; j < worldHeight; j++)
                 {
-                    map[i, j] = new Brick();
-                    map[i, j].x = i;
-                    map[i, j].y = j;
+                    map[i, j] = new Brick(i, j);
                 }
             }
+
+            map[7, 7] = new Crate(7, 7);
+            map[8, 13] = new Crate(8, 13);
         }
 
-        public void Update(int mousePosX, int mousePosY)
+        public void Update(int mousePosX, int mousePosY, Graphics g)
         {
-            Console.WriteLine("Update");
             for (int i = 0; i < worldWidth; i++)
             {
                 for (int j = 0; j < worldHeight; j++)
                 {
                     Tile t = map[i, j];
-                    t.Update(MouseInTile(i, j, mousePosX, mousePosY));
+                    t.Update(MouseInTile(i, j, mousePosX, mousePosY, g));
                 }
 
             }
@@ -45,7 +45,6 @@ namespace russianrumble
 
         public void Draw(Graphics graphics)
         {
-            Console.WriteLine("Draw");
             for (int i = 0; i < worldWidth; i++)
             {
                 for (int j = 0; j < worldHeight; j++) {
@@ -56,11 +55,14 @@ namespace russianrumble
             }
         }
 
-        private bool MouseInTile(int tileIdxX, int tileIdxY, int mousePxX, int mousePxY)
+        private bool MouseInTile(int tileIdxX, int tileIdxY, int mousePxX, int mousePxY, Graphics g)
         {
             int currentTileCoordinateX = Tile.tileSize * tileIdxX;
             int currentTileCoordinateY = Tile.tileSize * tileIdxY;
             Rectangle r = new Rectangle(currentTileCoordinateX, currentTileCoordinateY, Tile.tileSize, Tile.tileSize);
+            Pen p = new Pen(Brushes.White);
+            p.Width = 1F;
+            //g.DrawRectangle(p, r);
             return r.Contains(mousePxX, mousePxY);
         }
     }

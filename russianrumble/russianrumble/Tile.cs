@@ -14,8 +14,7 @@ namespace russianrumble
         public int x;
         public int y;
         public bool walkable;
-        public bool highlighted;
-        public int highlightAmt;
+        public bool hovered;
 
         public abstract void Draw(Graphics graphics);
 

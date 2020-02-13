@@ -12,9 +12,9 @@ namespace russianrumble
         World world = new World();
         Player player = new Player();
 
-        public void Update(int MousePosX, int MousePosY)
+        public void Update(int MousePosX, int MousePosY, Graphics g)
         {
-            world.Update(MousePosY, MousePosX);
+            world.Update(MousePosY, MousePosX, g);
         }
 
         public void Draw(Graphics graphics)

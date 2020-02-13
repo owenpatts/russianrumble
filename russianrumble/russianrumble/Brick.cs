@@ -10,10 +10,13 @@ namespace russianrumble
     class Brick : Tile
     {
         static Image texture = Image.FromFile("C:\\Users\\Owen\\source\\repos\\russianrumble\\russianrumble\\russianrumble\\resources\\textures\\tiles\\brick1.png");
+        private int highlightAmt;
 
-
-        public Brick()
+        public Brick(int x, int y)
         {
+            walkable = true;
+            this.x = x;
+            this.y = y;
             
         }
 
@@ -34,7 +37,7 @@ namespace russianrumble
             // Highlighting code:
             if (hover)
             {
-                this.highlighted = true;
+                this.hovered = true;
                 if (this.highlightAmt < maxHighlightOpacity)
                 {
                     this.highlightAmt += this.highlightAmt + 1;

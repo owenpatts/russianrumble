@@ -12,6 +12,7 @@ namespace russianrumble
 {
     public partial class Form1 : Form
     {
+        static Graphics g;
         Game game = new Game();
         int mousePosX;
         int mousePosY;
@@ -30,8 +31,9 @@ namespace russianrumble
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            game.Update(mousePosX, mousePosY);
+            g = e.Graphics;
             game.Draw(e.Graphics);
+            game.Update(mousePosX, mousePosY, e.Graphics);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
