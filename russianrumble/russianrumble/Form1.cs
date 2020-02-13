@@ -69,25 +69,25 @@ namespace russianrumble
                 case 'w':
                     if (game.player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.UP);
+                        game.player.Move(Direction.UP, game.world);
                     }
                     break;
                 case 's':
                     if (game.player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.DOWN);
+                        game.player.Move(Direction.DOWN, game.world);
                     }
                     break;
                 case 'a':
                     if (game.player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.LEFT);
+                        game.player.Move(Direction.LEFT, game.world);
                     }
                     break;
                 case 'd':
                     if (game.player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.RIGHT);
+                        game.player.Move(Direction.RIGHT, game.world);
                     }
                     break;
             }

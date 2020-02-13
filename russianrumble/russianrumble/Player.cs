@@ -22,8 +22,10 @@ namespace russianrumble
             
         }
 
-        public override void Move(int direction)
+        public override void Move(int direction, World world)
         {
+            int oldx = x;
+            int oldy = y;
             if(direction == Direction.UP)
             {
                 y -= 1;
@@ -39,7 +41,16 @@ namespace russianrumble
             {
                 x += 1;
             }
-            Console.WriteLine(x);
+
+            // If another entity is already in that position, revert.
+            foreach(Entity e in world.entities)
+            {
+                if (e.GetX() == x && e.GetY() == y)
+                {
+                    x = oldx;
+                    y = oldy;
+                }
+            }
         }
 
         public override void Update(World world)

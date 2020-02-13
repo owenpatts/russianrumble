@@ -13,7 +13,7 @@ namespace russianrumble
         protected int displayY;
 
         public abstract override void Draw(Graphics graphics);
-        public abstract void Move(int direction);
+        public abstract void Move(int direction, World world);
 
     }
 }
