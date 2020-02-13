@@ -63,7 +63,7 @@ namespace russianrumble
             Pen p = new Pen(Brushes.White);
             p.Width = 1F;
             //g.DrawRectangle(p, r);
-            return r.Contains(mousePxX, mousePxY);
+            return r.Contains(mousePxY, mousePxX);
         }
     }
 }

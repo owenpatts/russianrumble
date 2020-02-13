@@ -28,19 +28,20 @@ namespace russianrumble
             if (highlightAmt > 0)
             {
                 SolidBrush highlight = new SolidBrush(Color.FromArgb(highlightAmt, 255, 255, 255));
-                graphics.FillRectangle(highlight, x * tileSize, x * tileSize, Tile.tileSize, Tile.tileSize);
+                graphics.FillRectangle(highlight, x * tileSize, y * tileSize, Tile.tileSize, Tile.tileSize);
             }
         }
         
         public override void Update(bool hover)
         {
+
             // Highlighting code:
             if (hover)
             {
                 this.hovered = true;
                 if (this.highlightAmt < maxHighlightOpacity)
                 {
-                    this.highlightAmt += this.highlightAmt + 1;
+                    this.highlightAmt = maxHighlightOpacity;
                 }
             } else
             {
