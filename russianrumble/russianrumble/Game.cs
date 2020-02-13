@@ -9,8 +9,8 @@ namespace russianrumble
 {
     class Game
     {
-        World world = new World();
-        Player player = new Player();
+        public World world = new World();
+        public Player player = new Player();
 
         public void Update(int MousePosX, int MousePosY, Graphics g)
         {
@@ -27,7 +27,7 @@ namespace russianrumble
         {
             x /= Tile.tileSize;
             y /= Tile.tileSize;
-            player.Move(x, y);
+            //player.Move(x, y);
         }
     }
 }

@@ -17,10 +17,24 @@ namespace russianrumble
             graphics.DrawImage(texture, location);
         }
 
-        public override void Move(int x, int y)
+        public override void Move(int direction)
         {
-            this.x = x;
-            this.y = y;
+            if(direction == Direction.UP)
+            {
+                y -= 1;
+            } else if (direction == Direction.DOWN)
+            {
+                y += 1;
+            }
+            else if (direction == Direction.LEFT)
+            {
+                x -= 1;
+            }
+            else if (direction == Direction.RIGHT)
+            {
+                x += 1;
+            }
+            Console.WriteLine(x);
         }
     }
 }

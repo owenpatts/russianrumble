@@ -61,5 +61,36 @@ namespace russianrumble
             mousePosX = e.X;
             mousePosY = e.Y;
         }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            switch(e.KeyChar)
+            {
+                case 'w':
+                    if (game.player.GetY() >= 0)
+                    {
+                        game.player.Move(Direction.UP);
+                    }
+                    break;
+                case 's':
+                    if (game.player.GetY() >= 0)
+                    {
+                        game.player.Move(Direction.DOWN);
+                    }
+                    break;
+                case 'a':
+                    if (game.player.GetY() >= 0)
+                    {
+                        game.player.Move(Direction.LEFT);
+                    }
+                    break;
+                case 'd':
+                    if (game.player.GetY() >= 0)
+                    {
+                        game.player.Move(Direction.RIGHT);
+                    }
+                    break;
+            }
+        }
     }
 }
