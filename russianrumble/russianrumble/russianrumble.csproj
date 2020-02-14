@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleState.cs" />
     <Compile Include="Brick.cs" />
     <Compile Include="Crate.cs" />
     <Compile Include="Direction.cs" />
@@ -60,7 +61,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Game.cs" />
+    <Compile Include="iGameState.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="OverworldState.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

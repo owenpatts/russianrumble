@@ -9,7 +9,7 @@ namespace russianrumble
 {
     class Player : Squatter
     {
-        static Image texture = Image.FromFile("C:\\Users\\Owen\\source\\repos\\russianrumble\\russianrumble\\russianrumble\\resources\\textures\\entities\\player.png");
+        static Image texture = Properties.Resources.player;
 
         public override void Draw(Graphics graphics)
         {

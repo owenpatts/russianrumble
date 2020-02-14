@@ -36,14 +36,14 @@ namespace russianrumble
 
         }
 
-        public void Update(int mousePosX, int mousePosY, Graphics g)
+        public void Update(int mousePosX, int mousePosY)
         {
             for (int i = 0; i < worldWidth; i++)
             {
                 for (int j = 0; j < worldHeight; j++)
                 {
                     Tile t = map[i, j];
-                    t.Update(MouseInTile(i, j, mousePosX, mousePosY, g));
+                    t.Update(MouseInTile(i, j, mousePosX, mousePosY));
                 }
 
             }
@@ -77,7 +77,7 @@ namespace russianrumble
         /// <param name="mousePxY"></param>
         /// <param name="g"></param>
         /// <returns></returns>
-        private bool MouseInTile(int tileIdxX, int tileIdxY, int mousePxX, int mousePxY, Graphics g)
+        private bool MouseInTile(int tileIdxX, int tileIdxY, int mousePxX, int mousePxY)
         {
             int currentTileCoordinateX = Tile.tileSize * tileIdxX;
             int currentTileCoordinateY = Tile.tileSize * tileIdxY;

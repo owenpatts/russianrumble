@@ -12,24 +12,27 @@ namespace russianrumble
         private int mousePosX;
         private int mousePosY;
 
+        public iGameState gameState;
+
         public World world;
         public Player player = new Player();
 
         public Game()
         {
             world = new World(this);
+            gameState = new OverworldState(this);
         }
 
-        public void Update(int mousePosX, int mousePosY, Graphics g)
+        public void Update(int mousePosX, int mousePosY)
         {
-            world.Update(mousePosX, mousePosY, g);
+            gameState.Update();
             this.mousePosX = mousePosX;
             this.mousePosY = mousePosY;
         }
 
         public void Draw(Graphics graphics)
         {
-            world.Draw(graphics);
+            gameState.Draw(graphics);
             player.Draw(graphics);
         }
 

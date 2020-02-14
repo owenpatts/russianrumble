@@ -33,7 +33,7 @@ namespace russianrumble
         {
             g = e.Graphics;
             game.Draw(e.Graphics);
-            game.Update(mousePosX, mousePosY, e.Graphics);
+            game.Update(mousePosX, mousePosY);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -48,7 +48,7 @@ namespace russianrumble
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            game.Click(e.X, e.Y);
+            game.gameState.HandleMouseClick();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -64,33 +64,7 @@ namespace russianrumble
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            switch(e.KeyChar)
-            {
-                case 'w':
-                    if (game.player.GetY() >= 0)
-                    {
-                        game.player.Move(Direction.UP, game.world);
-                    }
-                    break;
-                case 's':
-                    if (game.player.GetY() >= 0)
-                    {
-                        game.player.Move(Direction.DOWN, game.world);
-                    }
-                    break;
-                case 'a':
-                    if (game.player.GetY() >= 0)
-                    {
-                        game.player.Move(Direction.LEFT, game.world);
-                    }
-                    break;
-                case 'd':
-                    if (game.player.GetY() >= 0)
-                    {
-                        game.player.Move(Direction.RIGHT, game.world);
-                    }
-                    break;
-            }
+            game.gameState.HandleKeyPress(e.KeyChar);
         }
     }
 }

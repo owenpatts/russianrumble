@@ -41,7 +41,7 @@ namespace russianrumble
 
         public bool checkAdjacent(int otherPosX, int otherPosY)
         {
-            return ((otherPosX == x + 1 || otherPosX == x - 1 && otherPosY == y) || (otherPosY == y + 1 || otherPosY == y - 1 && otherPosX == x));
+            return ((otherPosX == x + 1 && otherPosY == y || otherPosX == x - 1 && otherPosY == y) || (otherPosY == y + 1 && otherPosX == x || otherPosY == y - 1 && otherPosX == x));
         }
     }
 }
