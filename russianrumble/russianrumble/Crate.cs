@@ -39,7 +39,8 @@ namespace russianrumble
 
         public override void Update(World world)
         {
-            interactable = (checkHover(world) && checkAdjacent(world.game.player.GetX(), world.game.player.GetY()));
+            this.world = world;
+            interactable = (checkHover() && checkAdjacent(world.game.player.GetX(), world.game.player.GetY()));
         }
     }
 }

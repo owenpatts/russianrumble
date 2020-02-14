@@ -11,6 +11,7 @@ namespace russianrumble
     {
         protected int x;
         protected int y;
+        protected World world;
 
         public int GetX()
         {
@@ -28,7 +29,7 @@ namespace russianrumble
 
         public abstract void Interact();
 
-        public bool checkHover(World world)
+        public bool checkHover()
         {
             int mousePxX = world.game.GetMousePosX();
             int mousePxY = world.game.GetMousePosY();
