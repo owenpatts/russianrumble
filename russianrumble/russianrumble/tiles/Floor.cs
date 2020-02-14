@@ -7,12 +7,12 @@ using System.Drawing;
 
 namespace russianrumble
 {
-    class Brick : Tile
+    class Floor : Tile
     {
         static Image texture = Properties.Resources.brick1;
         private int highlightAmt;
 
-        public Brick(int x, int y)
+        public Floor(int x, int y)
         {
             walkable = true;
             this.x = x;

@@ -34,13 +34,13 @@ namespace russianrumble
 
         public override void Interact()
         {
-            
+            world.game.SetState(new InventoryState(world.game));
         }
 
         public override void Update(World world)
         {
             this.world = world;
-            interactable = (checkHover() && checkAdjacent(world.game.player.GetX(), world.game.player.GetY()));
+            interactable = (checkHover() && checkAdjacent(world.game.Player.GetX(), world.game.Player.GetY()));
         }
     }
 }

@@ -10,6 +10,7 @@ namespace russianrumble
     interface iGameState
     {
         void Update();
+
         void Draw(Graphics g);
 
         void HandleKeyPress(char key);

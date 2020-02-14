@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace russianrumble
 {
-    class BattleState : iGameState
+    class InventoryState : iGameState
     {
         Game game;
 
-        public BattleState(Game game)
+        public InventoryState(Game game)
         {
             this.game = game;
         }
@@ -23,12 +23,15 @@ namespace russianrumble
 
         public void HandleKeyPress(char key)
         {
-
+            if(key == 'e')
+            {
+                game.ReturnToLastState();
+            }
         }
 
         public void HandleMouseClick()
         {
-            game.gameState = new OverworldState(game);
+            
         }
 
         public void Update()

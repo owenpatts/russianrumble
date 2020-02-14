@@ -48,7 +48,7 @@ namespace russianrumble
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            game.gameState.HandleMouseClick();
+            game.HandleMouseClick();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -64,7 +64,7 @@ namespace russianrumble
 
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            game.gameState.HandleKeyPress(e.KeyChar);
+            game.HandleKeyPress(e.KeyChar);
         }
     }
 }

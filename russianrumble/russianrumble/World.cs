@@ -27,7 +27,7 @@ namespace russianrumble
             {
                 for(int j = 0; j < worldHeight; j++)
                 {
-                    map[i, j] = new Brick(i, j);
+                    map[i, j] = new Floor(i, j);
                 }
             }
 

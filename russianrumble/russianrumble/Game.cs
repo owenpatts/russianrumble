@@ -12,28 +12,28 @@ namespace russianrumble
         private int mousePosX;
         private int mousePosY;
 
-        public iGameState gameState;
+        private iGameState currentState;
+        private iGameState lastState;
 
-        public World world;
-        public Player player = new Player();
+        public World World;
+        public Player Player = new Player();
 
         public Game()
         {
-            world = new World(this);
-            gameState = new OverworldState(this);
+            World = new World(this);
+            currentState = new OverworldState(this);
         }
 
         public void Update(int mousePosX, int mousePosY)
         {
-            gameState.Update();
+            currentState.Update();
             this.mousePosX = mousePosX;
             this.mousePosY = mousePosY;
         }
 
         public void Draw(Graphics graphics)
         {
-            gameState.Draw(graphics);
-            player.Draw(graphics);
+            currentState.Draw(graphics);
         }
 
         public void Click(int x, int y)
@@ -51,6 +51,29 @@ namespace russianrumble
         public int GetMousePosY()
         {
             return mousePosY;
+        }
+
+        public void HandleMouseClick()
+        {
+            currentState.HandleMouseClick();
+        }
+
+        public void HandleKeyPress(char key)
+        {
+            currentState.HandleKeyPress(key);
+        }
+
+        public void SetState(iGameState state)
+        {
+            this.lastState = currentState;
+            this.currentState = state;
+        }
+
+        public void ReturnToLastState()
+        {
+            iGameState tempState = currentState;
+            this.currentState = lastState;
+            this.lastState = tempState;
         }
     }
 }

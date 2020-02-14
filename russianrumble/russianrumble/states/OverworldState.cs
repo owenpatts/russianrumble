@@ -17,7 +17,8 @@ namespace russianrumble
         }
         public void Draw(Graphics graphics)
         {
-            game.world.Draw(graphics);
+            game.World.Draw(graphics);
+            game.Player.Draw(graphics);
         }
 
         public void HandleKeyPress(char key)
@@ -25,43 +26,43 @@ namespace russianrumble
             switch (key)
             {
                 case 'w':
-                    if (game.player.GetY() >= 0)
+                    if (game.Player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.UP, game.world);
+                        game.Player.Move(Direction.UP, game.World);
                     }
                     break;
                 case 's':
-                    if (game.player.GetY() >= 0)
+                    if (game.Player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.DOWN, game.world);
+                        game.Player.Move(Direction.DOWN, game.World);
                     }
                     break;
                 case 'a':
-                    if (game.player.GetY() >= 0)
+                    if (game.Player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.LEFT, game.world);
+                        game.Player.Move(Direction.LEFT, game.World);
                     }
                     break;
                 case 'd':
-                    if (game.player.GetY() >= 0)
+                    if (game.Player.GetY() >= 0)
                     {
-                        game.player.Move(Direction.RIGHT, game.world);
+                        game.Player.Move(Direction.RIGHT, game.World);
                     }
                     break;
                 case 'e':
-                    game.gameState = new BattleState(game);
+                    game.SetState(new InventoryState(game));
                     break;
             }
         }
 
         public void HandleMouseClick()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void Update()
         {
-            game.world.Update(game.GetMousePosX(), game.GetMousePosY());
+            game.World.Update(game.GetMousePosX(), game.GetMousePosY());
         }
     }
 }
