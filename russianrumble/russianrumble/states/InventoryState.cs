@@ -66,11 +66,10 @@ namespace russianrumble
         public void Draw(Graphics g)
         {
             
-            //g.DrawRectangle(new Pen(Brushes.LightGray, border), inventory);
-            //g.DrawRectangle(new Pen(Brushes.Red, border), preview);
-            //g.DrawRectangle(new Pen(Brushes.Red, border), description);
-            //g.DrawRectangle(new Pen(Brushes.Red, border), contents);
-            //g.DrawRectangle(new Pen(Brushes.Red, border), scrollButtonBot);
+            foreach(Item i in game.Player.inventory.Display())
+            {
+                buttons.Add();
+            }
             
 
             foreach (Button b in buttons)

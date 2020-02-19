@@ -29,10 +29,10 @@ namespace russianrumble
             return removed;
         }
 
-        public ArrayList Display()
+        public ArrayList GetItems(int noItems)
         {
             ArrayList displayedItems = new ArrayList;
-            for(int i = scrollpos; i < inventory.Count; i++)
+            for(int i = scrollpos; i < inventory.Count && i < noItems; i++)
             {
                 displayedItems.Add(inventory[i]);
             }
@@ -49,7 +49,7 @@ namespace russianrumble
         
         public void ScrollDown()
         {
-            if (scrollpos < inventory.Count - 5)
+            if (scrollpos < inventory.Count)
             {
                 scrollpos++;
             }
