@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Storage.cs" />
     <Compile Include="ui\buttons\Button.cs" />
     <Compile Include="GameProperties.cs" />
     <Compile Include="iInteractable.cs" />

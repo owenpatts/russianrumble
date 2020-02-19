@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,6 +11,18 @@ namespace russianrumble
     class Player : Squatter
     {
         static Image texture = Properties.Resources.player;
+        public Storage inventory;
+
+        public Player()
+        {
+            inventory.Store(new Item());
+            inventory.Store(new Item());
+            inventory.Store(new Item());
+            inventory.Store(new Item());
+            inventory.Store(new Item());
+            inventory.Store(new Item());
+            inventory.Store(new Item());
+        }
 
         public override void Draw(Graphics graphics)
         {
@@ -57,5 +70,6 @@ namespace russianrumble
         {
             
         }
+
     }
 }

@@ -66,7 +66,6 @@ namespace russianrumble
         public void Draw(Graphics g)
         {
             
-
             //g.DrawRectangle(new Pen(Brushes.LightGray, border), inventory);
             //g.DrawRectangle(new Pen(Brushes.Red, border), preview);
             //g.DrawRectangle(new Pen(Brushes.Red, border), description);
