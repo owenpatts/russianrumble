@@ -17,21 +17,22 @@ namespace russianrumble
         private float previewDescRelHeight = 0.3f;
         private int marginSize;
         private ArrayList buttons = new ArrayList();
+        
+        public void UpButtonClick(World world)
+        {
+            this.border = 8;
+        }
 
         public InventoryState(Game game)
         {
             this.game = game;
-        }
-
-        public void Draw(Graphics g)
-        {
             marginSize = GameProperties.screenWidth / 30;
             border = GameProperties.screenWidth / 480;
-            int inventoryHeight = (int) (GameProperties.screenHeight * inventoryHeightModifier);
-            int inventoryWidth  = (int) (GameProperties.screenWidth * inventoryWidthModifier);
+            int inventoryHeight = (int)(GameProperties.screenHeight * inventoryHeightModifier);
+            int inventoryWidth = (int)(GameProperties.screenWidth * inventoryWidthModifier);
             int originY = ((GameProperties.screenHeight - inventoryHeight) / 2);
             int originX = ((GameProperties.screenWidth - inventoryWidth) / 2);
-            
+
             int previewSize = (int)(inventoryHeight * previewDescRelHeight);
             int previewOriginX = originX + marginSize;
             int previewOriginY = originY + marginSize;
@@ -58,13 +59,20 @@ namespace russianrumble
             Rectangle contents = new Rectangle(contentsOriginX, contentsOriginY, contentsWidth, contentsHeight);
             Rectangle scrollButtonTop = new Rectangle(scrollButtonTopOriginX, scrollButtonTopOriginY, scrollButtonSize, scrollButtonSize);
             Rectangle scrollButtonBot = new Rectangle(scrollButtonBotOriginX, scrollButtonBotOriginY, scrollButtonSize, scrollButtonSize);
+            buttons.Add(new Button(scrollButtonTopOriginX, scrollButtonTopOriginY, scrollButtonSize, UpButtonClick));
+            buttons.Add(new Button(scrollButtonBotOriginX, scrollButtonBotOriginY, scrollButtonSize, UpButtonClick));
+        }
 
-            g.DrawRectangle(new Pen(Brushes.LightGray, border), inventory);
-            g.DrawRectangle(new Pen(Brushes.Red, border), preview);
-            g.DrawRectangle(new Pen(Brushes.Red, border), description);
-            g.DrawRectangle(new Pen(Brushes.Red, border), contents);
-            g.DrawRectangle(new Pen(Brushes.Red, border), scrollButtonBot);
-            buttons.Add(new ScrollButtonUp(scrollButtonTopOriginX, scrollButtonTopOriginY, scrollButtonSize));
+        public void Draw(Graphics g)
+        {
+            
+
+            //g.DrawRectangle(new Pen(Brushes.LightGray, border), inventory);
+            //g.DrawRectangle(new Pen(Brushes.Red, border), preview);
+            //g.DrawRectangle(new Pen(Brushes.Red, border), description);
+            //g.DrawRectangle(new Pen(Brushes.Red, border), contents);
+            //g.DrawRectangle(new Pen(Brushes.Red, border), scrollButtonBot);
+            
 
             foreach (Button b in buttons)
             {
@@ -82,7 +90,11 @@ namespace russianrumble
 
         public void HandleMouseClick()
         {
-            
+            foreach(Button b in buttons)
+            {
+                Console.WriteLine("test");
+                b.onClick(game.World, game.GetMousePosX(), game.GetMousePosY());
+            }
         }
 
         public void Update()

@@ -78,7 +78,6 @@
     </Compile>
     <Compile Include="entities\Squatter.cs" />
     <Compile Include="tiles\Tile.cs" />
-    <Compile Include="ui\buttons\ScrollButtonUp.cs" />
     <Compile Include="World.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

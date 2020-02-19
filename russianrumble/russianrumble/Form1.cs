@@ -24,8 +24,8 @@ namespace russianrumble
         private void Form1_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
             GameProperties.screenHeight = this.Height;
             GameProperties.screenWidth = this.Width;
             timer1.Enabled = true;
