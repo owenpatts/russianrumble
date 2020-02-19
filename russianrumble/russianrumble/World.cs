@@ -20,6 +20,7 @@ namespace russianrumble
 
         public World(Game game)
         {
+            // placing tiles
             this.game = game;
             Random rand = new Random();
             map = new Tile[worldWidth, worldHeight];
@@ -31,8 +32,23 @@ namespace russianrumble
                 }
             }
 
-            entities.Add(new Crate(7, 7));
-            entities.Add(new Crate(3, 2));
+            // Populating chests
+            int numberOfChests = rand.Next(1, 20);
+            for (int i = 0; i < numberOfChests; i++)
+            {
+                int chestPosX = rand.Next(0, worldWidth);
+                int chestPoxY = rand.Next(0, worldHeight);
+
+                bool locationTaken = false;
+                foreach (Entity e in entities) {
+                    if (e.GetX() == chestPosX && e.GetY() == chestPoxY)
+                    {
+                        locationTaken = true;
+                    }
+                }
+                if (!locationTaken)
+                    entities.Add(new Crate(chestPosX, chestPoxY));
+            }
 
         }
 

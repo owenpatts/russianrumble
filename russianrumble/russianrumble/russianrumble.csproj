@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ui\buttons\Button.cs" />
+    <Compile Include="GameProperties.cs" />
+    <Compile Include="iInteractable.cs" />
     <Compile Include="states\BattleState.cs" />
     <Compile Include="tiles\Floor.cs" />
     <Compile Include="entities\Crate.cs" />
@@ -75,6 +78,7 @@
     </Compile>
     <Compile Include="entities\Squatter.cs" />
     <Compile Include="tiles\Tile.cs" />
+    <Compile Include="ui\buttons\ScrollButtonUp.cs" />
     <Compile Include="World.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
